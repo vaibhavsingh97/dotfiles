@@ -1,0 +1,16 @@
+[user]
+	name = Vaibhav Singh
+	email = vaibhav.singh.14cse@bml.edu.in
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/vaibhavsingh97/.gitignore
+[color]
+  	ui = auto
+
+[advice]
+  	statusHints = false
+
+[fetch]
+	# Automatically prune deleted branches from your local copy when you fetch (or pull)
+	prune = true
