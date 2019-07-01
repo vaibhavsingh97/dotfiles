@@ -164,7 +164,10 @@ export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Alias tip: "
 alias fdir='find . -type d -name'
 alias ffil='find . -type f -name'
 alias cat="bat"
-alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
+alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub | echo '=> Private key copied to pasteboard.'"
+alias dl="cd ~/Downloads"
+alias h="history"
+alias hm="cd ~"
 
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
@@ -230,3 +233,14 @@ export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+##################################
+##           History            ##
+##################################
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=50000000;
+export HISTFILESIZE=$HISTSIZE;
+export HISTCONTROL=ignoredups;
+# Make some commands not show up in history
+export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h:pony:pony add *:pony update *:pony save *:pony ls:pony ls *";
