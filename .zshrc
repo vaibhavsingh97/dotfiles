@@ -90,6 +90,7 @@ export ZSH="/Users/vaibhavsingh97/.oh-my-zsh"
 
 
 # Theme
+POWERLEVEL9K_MODE="nerdfont-complete"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 
@@ -129,7 +130,6 @@ POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%{%F{249}%}\u250f"
-POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator dir dir_writable virtualenv node_version nvm vcs context)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history command_execution_time time load rbenv rvm go_version aws)
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{014}╭"
