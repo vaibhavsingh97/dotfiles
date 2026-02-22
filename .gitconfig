@@ -1,16 +1,81 @@
 [user]
 	name = Vaibhav Singh
-	email = vaibhav.singh.14cse@bml.edu.in
+	email = singh.vaibhav@gmail.com
+
 [credential]
 	helper = osxkeychain
+
 [core]
-	excludesfile = /Users/vaibhavsingh97/.gitignore
+	excludesfile = ~/.gitignore
+	pager = delta
+	autocrlf = input
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
 [color]
-  	ui = auto
+	ui = auto
 
-[advice]
-  	statusHints = false
+# =============================================================================
+# Delta
+# =============================================================================
+[delta]
+	navigate = true           # n/N to jump between diff sections
+	light = false
+	side-by-side = true       # split view like GitHub
+	line-numbers = true
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-decoration-style = cyan box ul
 
+[interactive]
+	diffFilter = delta --color-only   # fixes fzf-based git add -p
+
+# =============================================================================
+# Fetch / Pull / Push
+# =============================================================================
 [fetch]
-	# Automatically prune deleted branches from your local copy when you fetch (or pull)
-	prune = true
+	prune = true              # auto-remove deleted remote branches
+
+[pull]
+	rebase = true             # prevents unnecessary merge commits
+
+[rebase]
+	autoStash = true          # auto stash/unstash dirty working tree when rebasing
+
+[merge]
+	conflictstyle = diff3     # shows base in conflicts, much easier to resolve
+
+# =============================================================================
+# Aliases
+# =============================================================================
+[alias]
+	# Utilities
+	aliases  = config --get-regexp alias           # list all aliases
+	remotes  = remote -v
+	tags     = tag -l
+	whoami   = config user.email
+	cleanup  = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+
+# =============================================================================
+# Diff / Merge tools
+# =============================================================================
+[diff]
+	tool = vscode
+	colorMoved = default       # highlights moved code blocks differently
+
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+	tool = vscode
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+# =============================================================================
+# Misc
+# =============================================================================
+[init]
+	defaultBranch = main
+
+[help]
+	autocorrect = 10           # auto-fix typos after 1s (e.g. git chekcout → checkout)
