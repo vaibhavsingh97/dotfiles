@@ -26,7 +26,6 @@ plugins=(
   history-substring-search
   alias-tips
   fast-syntax-highlighting
-  poetry
 )
 
 export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Alias tip: "
@@ -129,7 +128,7 @@ alias grep="grep --color=auto"
 alias ls="eza"
 alias grep="rg"
 alias find="fd"
-alias cd="z"
+#alias cd="z"
 alias df="duf"
 alias du="dust"
 alias ping="gping"
@@ -170,3 +169,19 @@ alias update='brew cleanup; brew upgrade; brew update; npm update -g; npm instal
 
 # fzf
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+export PATH="$HOME/.asdf/shims:$PATH"
+
+# Wrap cloudflared to automatically inject config file path for tunnel run
+cloudflared() {
+    if [[ "$1" == "tunnel" && "$2" == "run" ]]; then
+        # Shift out "tunnel" and "run" from arguments list
+        shift 2
+        # Run command with config flag injected, passing along any extra trailing arguments
+        command cloudflared tunnel --config "$HOME/.cloudflared/config.yml" run "$@"
+    else
+        # Fall back to normal behavior for all other cloudflared commands
+        command cloudflared "$@"
+    fi
+}
+
+source "$HOME/.config/zsh/node.zsh"
